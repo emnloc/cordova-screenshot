@@ -1,9 +1,9 @@
 {
-  "name": "com.darktalker.cordova.screenshot",
-  "version": "0.1.4",
+  "name": "com.emnloc.cordova.screenshot",
+  "version": "0.1.5",
   "description": "screenshot PhoneGap Plugin for Android",
   "cordova": {
-    "id": "com.darktalker.cordova.screenshot",
+    "id": "com.emnloc.cordova.screenshot",
     "platforms": [
       "android",
       "ios"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gitawego/cordova-screenshot.git"
+    "url": "git+https://github.com/emnloc/cordova-screenshot.git"
   },
   "keywords": [
     "cordova",
@@ -29,7 +29,7 @@
   "author": "Hongbo LU",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gitawego/cordova-screenshot/issues"
+    "url": "https://github.com/emnloc/cordova-screenshot/issues"
   },
-  "homepage": "https://github.com/gitawego/cordova-screenshot#readme"
+  "homepage": "https://github.com/emnloc/cordova-screenshot#readme"
 }
