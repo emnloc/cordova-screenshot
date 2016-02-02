@@ -19,12 +19,25 @@
 - (UIImage *)getScreenshot
 {
 	UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-	CGRect rect = [keyWindow bounds];
-	UIGraphicsBeginImageContextWithOptions(rect.size, YES, 0);
-	[keyWindow drawViewHierarchyInRect:keyWindow.bounds afterScreenUpdates:YES];
-	UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	return img;
+
+    CGRect rect = CGRectMake(keyWindow.bounds.origin.x, 100, keyWindow.bounds.size.width, keyWindow.bounds.size.height - 100);
+    CGRect drawRect = CGRectMake(0, -100, keyWindow.bounds.size.width, keyWindow.bounds.size.height - 100);
+
+    NSLog(@"%@ sadsadas", NSStringFromCGRect(rect));
+    NSLog(@"%@ sadsadas", NSStringFromCGRect(drawRect));
+
+    UIGraphicsBeginImageContext(keyWindow.bounds.size);
+    [keyWindow.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *sourceImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    UIGraphicsBeginImageContext(rect.size);
+    [sourceImage drawAtPoint:CGPointMake(0, -100)];
+
+    UIImage *croppedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return croppedImage;
 }
 
 - (void)saveScreenshot:(CDVInvokedUrlCommand*)command
